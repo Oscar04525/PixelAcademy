@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "titulo": "Unity desde Cero",
+    "categoria": "Unity",
+    "instructor": "Alejandro Martínez",
+    "precio": 29.99,
+    "descripcion": "Aprende a crear tu primer videojuego 2D con Unity y C# desde cero, sin experiencia previa.",
+    "duracion": "12 horas",
+    "nivel": "Principiante",
+    "imagen": "images/courses/unity-basico.jpg",
+    "valoracion": 4.9,
+    "estudiantes": 3240
+  },
+  {
+    "id": 2,
+    "titulo": "Unreal Engine 5 — Mundos 3D",
+    "categoria": "Unreal Engine",
+    "instructor": "Laura Vega",
+    "precio": 49.99,
+    "descripcion": "Crea entornos 3D realistas y mecánicas de juego avanzadas con Unreal Engine 5 y Blueprints.",
+    "duracion": "20 horas",
+    "nivel": "Intermedio",
+    "imagen": "images/courses/unreal-engine.jpg",
+    "valoracion": 4.8,
+    "estudiantes": 1850
+  },
+  {
+    "id": 3,
+    "titulo": "Pixel Art y Diseño 2D",
+    "categoria": "Diseño 2D",
+    "instructor": "Sofía Ruiz",
+    "precio": 19.99,
+    "descripcion": "Domina el arte del Pixel Art para crear personajes, escenarios y animaciones para videojuegos.",
+    "duracion": "8 horas",
+    "nivel": "Principiante",
+    "imagen": "images/courses/pixel-art-2d.jpg",
+    "valoracion": 4.7,
+    "estudiantes": 4100
+  },
+  {
+    "id": 4,
+    "titulo": "Modelado 3D con Blender",
+    "categoria": "Diseño 3D",
+    "instructor": "Andrés Torres",
+    "precio": 39.99,
+    "descripcion": "Aprende a modelar, texturizar y exportar personajes y objetos 3D para usar en tus videojuegos.",
+    "duracion": "16 horas",
+    "nivel": "Intermedio",
+    "imagen": "images/courses/modelado-3d.jpg",
+    "valoracion": 4.6,
+    "estudiantes": 2200
+  },
+  {
+    "id": 5,
+    "titulo": "Game Design: Fundamentos",
+    "categoria": "Game Design",
+    "instructor": "María González",
+    "precio": 24.99,
+    "descripcion": "Comprende las mecánicas, narrativa, balanceo y diseño de niveles que hacen a un gran videojuego.",
+    "duracion": "10 horas",
+    "nivel": "Principiante",
+    "imagen": "images/courses/game-design.jpg",
+    "valoracion": 4.8,
+    "estudiantes": 2950
+  }
+]
