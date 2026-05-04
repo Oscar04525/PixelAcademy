@@ -1,24 +1,50 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-info">
+<nav class="navbar navbar-expand-lg fixed-top shadow-sm" style="background-color: #020617; border-bottom: 1px solid rgba(0, 243, 255, 0.1);">
   <div class="container">
-    <!-- El logo también debe llevarte al inicio -->
-    <a class="navbar-brand text-neon fw-bold" routerLink="/">PIXEL ACADEMY</a>
+    <!-- Logo Principal -->
+    <a class="navbar-brand fw-bold fs-3" routerLink="/home" style="letter-spacing: 2px;">
+      <span style="color: #00f3ff;">PIXEL</span>
+      <span style="color: #bc13fe;">ACADEMY</span>
+    </a>
 
+    <!-- Botón para móviles -->
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <i class="bi bi-list text-white fs-1"></i>
+    </button>
+
+    <!-- Contenido de la Navbar -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav ms-auto align-items-center gap-2">
+
+        <!-- Enlaces de navegación -->
         <li class="nav-item">
-          <a class="nav-link" routerLink="/" routerLinkActive="text-neon">Inicio</a>
+          <a class="nav-link text-white fw-semibold px-3" routerLink="/home" routerLinkActive="text-neon">INICIO</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/catalog" routerLinkActive="text-neon">Cursos</a>
+          <a class="nav-link text-white fw-semibold px-3" routerLink="/catalog" routerLinkActive="text-neon">CURSOS</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/login" routerLinkActive="text-neon">Entrar</a>
-        </li>
+
+        <!-- Icono de Carrito con Contador Dinámico -->
         <li class="nav-item ms-lg-3">
-          <button class="btn btn-outline-info ms-lg-3 mt-3 mt-lg-0" routerLink="/cart">
-            CARRITO ({{ cartService.cartCount() }})
+          <a routerLink="/checkout" class="nav-link position-relative p-2">
+            <i class="bi bi-cart text-neon fs-4"></i>
+            <!-- Solo muestra el badge si hay items en el carrito -->
+            @if (cartService.totalItems() > 0) {
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                    style="font-size: 0.65rem; border: 1px solid #000;">
+                {{ cartService.totalItems() }}
+              </span>
+            }
+          </a>
+        </li>
+
+        <!-- Botón de Login (Estilo imagen image_494a5a.png) -->
+        <li class="nav-item ms-lg-3">
+          <button class="btn btn-outline-neon fw-bold px-4 py-2" routerLink="/login"
+                  style="border: 2px solid #00f3ff; color: #00f3ff; background: transparent; transition: 0.3s;">
+            LOGIN
           </button>
         </li>
+
       </ul>
     </div>
   </div>
