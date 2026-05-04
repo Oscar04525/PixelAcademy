@@ -218,3 +218,50 @@ input.form-control {
   font-size: 0.6rem !important;
   padding: 0.35em 0.5em !important;
 }
+.custom-nav {
+  background-color: #020617;
+  border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+  padding: 15px 0;
+}
+
+.logo-text {
+  font-weight: 800;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.text-cyan { color: #00f3ff; }
+.text-purple { color: #bc13fe; }
+
+.nav-item-text {
+  color: white !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.nav-item-text:hover, .nav-item-text.active {
+  color: #00f3ff !important;
+}
+
+.btn-carrito-neon {
+  border: 2px solid #00f3ff;
+  color: #00f3ff;
+  background: transparent;
+  padding: 8px 22px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+  cursor: pointer;
+}
+
+.btn-carrito-neon:hover {
+  background-color: #00f3ff;
+  color: #020617;
+  box-shadow: 0 0 20px #00f3ff;
+}

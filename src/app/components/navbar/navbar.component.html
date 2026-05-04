@@ -23,27 +23,15 @@
           <a class="nav-link text-white fw-semibold px-2" routerLink="/catalog" routerLinkActive="text-info">CURSOS</a>
         </li>
 
-        <!-- CARRITO: Ahora con color forzado para que se vea -->
-        <li class="nav-item ms-lg-2">
-          <a routerLink="/checkout" class="nav-link position-relative p-2" style="display: flex; align-items: center;">
-            <!-- Icono con color Neón explícito -->
-            <i class="bi bi-cart fs-4" style="color: #00f3ff; text-shadow: 0 0 8px rgba(0, 243, 255, 0.8);"></i>
-
-            <!-- Contador (Puntito Rojo) -->
-            @if (cartService.totalItems() > 0) {
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
-                    style="font-size: 0.65rem; min-width: 1.5em; height: 1.5em; display: flex; align-items: center; justify-content: center; border: 1px solid #020617;">
-                {{ cartService.totalItems() }}
-              </span>
-            }
-          </a>
+        <!-- BOTÓN ENTRAR (Antes Login) -->
+        <li class="nav-item">
+          <a class="nav-link text-white fw-semibold px-2" routerLink="/login" routerLinkActive="text-info">ENTRAR</a>
         </li>
 
-        <!-- BOTÓN LOGIN (Estilo contorno neón) -->
+        <!-- BOTÓN CARRITO: Estilo neón con texto (Como image_48e507.png) -->
         <li class="nav-item ms-lg-2">
-          <button class="btn fw-bold px-4 py-2" routerLink="/login"
-                  style="border: 2px solid #00f3ff; color: #00f3ff; background: transparent; box-shadow: 0 0 10px rgba(0, 243, 255, 0.2); transition: 0.3s;">
-            LOGIN
+          <button class="btn-carrito-neon" routerLink="/checkout">
+            CARRITO ({{ cartService.totalItems() }})
           </button>
         </li>
 
