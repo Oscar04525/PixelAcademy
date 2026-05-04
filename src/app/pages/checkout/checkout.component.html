@@ -1,0 +1,56 @@
+<div class="container mt-5 pt-5 mb-5">
+  <h2 class="hero-title text-center mb-5" style="font-size: 3rem;">FINALIZAR COMPRA</h2>
+
+  <div class="row g-4">
+    <!-- 1. DATOS DE ENVÍO -->
+    <div class="col-md-6">
+      <div class="card p-4 h-100">
+        <h4 class="text-neon mb-4">1. DATOS DE ENVÍO</h4>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">NOMBRE COMPLETO</label>
+          <input type="text" class="form-control" placeholder="Escribe tu nombre...">
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">DIRECCIÓN</label>
+          <input type="text" class="form-control" placeholder="Calle, número, piso...">
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">CIUDAD / PAÍS</label>
+          <input type="text" class="form-control" placeholder="Tu ciudad">
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. MÉTODO DE PAGO -->
+    <div class="col-md-6">
+      <div class="card p-4 h-100">
+        <h4 class="text-neon mb-4">2. MÉTODO DE PAGO</h4>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">TARJETA / PAYPAL</label>
+          <select class="form-control form-select">
+            <option>Tarjeta de Crédito</option>
+            <option>PayPal</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-bold">NÚMERO DE TARJETA</label>
+          <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label class="form-label small fw-bold">CADUCIDAD</label>
+            <input type="text" class="form-control" placeholder="MM/YY">
+          </div>
+          <div class="col-6">
+            <label class="form-label small fw-bold">CVC</label>
+            <input type="text" class="form-control" placeholder="123">
+          </div>
+        </div>
+
+        <button class="btn-neon w-100 mt-4 py-3" (click)="finalizarCompra()">
+          CONFIRMAR PEDIDO
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
