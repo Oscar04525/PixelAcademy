@@ -205,3 +205,16 @@ label {
 input.form-control {
   color: #ffffff !important;
 }
+/* Forzar que el icono del carrito brille en neón */
+.bi-cart {
+  color: #00f3ff !important; /* Tu azul neón */
+  filter: drop-shadow(0 0 5px rgba(0, 243, 255, 0.5));
+  font-size: 1.5rem;
+}
+
+/* Ajustar el badge rojo para que no tape el icono */
+.badge {
+  background-color: #ff0055 !important; /* Un rojo más eléctrico */
+  font-size: 0.6rem !important;
+  padding: 0.35em 0.5em !important;
+}
