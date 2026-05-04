@@ -1,1 +1,207 @@
-/* You can add global styles to this file, and also import other style files */
+/* =========================================
+   CONFIGURACIÓN GLOBAL Y VARIABLES
+   ========================================= */
+:root {
+  --bg-dark: #020617;        /* Negro azulado profundo */
+  --card-bg: #0f172a;       /* Azul oscuro para tarjetas */
+  --neon-blue: #00f2ff;     /* Cyan eléctrico */
+  --neon-purple: #bc13fe;   /* Morado neón */
+  --text-gray: #94a3b8;     /* Gris para textos secundarios */
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #f8fafc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   NAVBAR PREMIUM (Efecto Cristal)
+   ========================================= */
+.navbar {
+  padding: 1.2rem 0;
+  background: rgba(2, 6, 23, 0.85) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 242, 255, 0.2);
+  transition: all 0.3s;
+}
+
+.navbar-brand {
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-link {
+  color: #cbd5e1 !important;
+  font-weight: 500;
+  margin: 0 10px;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  transition: 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--neon-blue) !important;
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.6);
+}
+
+/* =========================================
+   HOME / HERO SECTION
+   ========================================= */
+.hero-section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: radial-gradient(circle at 50% 50%, rgba(188, 19, 254, 0.15) 0%, transparent 60%);
+}
+
+.hero-title {
+  font-size: 5rem;
+  font-weight: 900;
+  text-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+  margin-bottom: 1rem;
+}
+
+/* =========================================
+   TARJETAS DEL CATÁLOGO (CARDS)
+   ========================================= */
+.card {
+  background-color: var(--card-bg) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--neon-blue) !important;
+  box-shadow: 0 10px 30px rgba(0, 242, 255, 0.2);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.text-neon {
+  color: var(--neon-blue);
+  font-weight: bold;
+}
+
+/* =========================================
+   BOTONES Y FORMULARIOS
+   ========================================= */
+.btn-neon {
+  background: transparent;
+  color: var(--neon-blue);
+  border: 2px solid var(--neon-blue);
+  padding: 10px 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  border-radius: 4px;
+}
+
+.btn-neon:hover {
+  background: var(--neon-blue);
+  color: #000;
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.form-control {
+  background-color: #1e293b !important;
+  border: 1px solid #334155 !important;
+  color: white !important;
+  padding: 12px;
+}
+
+.form-control:focus {
+  border-color: var(--neon-blue) !important;
+  box-shadow: 0 0 8px rgba(0, 242, 255, 0.3);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+  background-color: #010409;
+  padding: 3rem 0;
+  margin-top: 5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-gray);
+}
+.footer {
+  background: linear-gradient(180deg, #020617 0%, #000000 100%) !important;
+  box-shadow: 0 -10px 30px rgba(0, 242, 255, 0.05);
+}
+
+.footer .nav-link:hover {
+  color: var(--neon-blue) !important;
+  transform: translateX(5px);
+  transition: 0.3s;
+}
+
+/* Espaciado para que no choque con el contenido */
+main {
+  min-height: calc(100vh - 160px); /* Ajusta según el alto de tu footer */
+}
+.card-img-top {
+  width: 100%;
+  height: 200px; /* Fuerza a que todas midan lo mismo */
+  object-fit: cover; /* Recorta la imagen para que no se deforme */
+  border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+}
+/* Forzamos que se vea lo que escribimos */
+input.form-control,
+select.form-control,
+textarea.form-control {
+  color: #ffffff !important;
+  background-color: #1e293b !important; /* El azul oscuro de tu diseño */
+}
+
+/* Para que el "placeholder" (el texto de ayuda) no sea tan brillante */
+input::placeholder {
+  color: #64748b !important;
+  opacity: 1;
+}
+
+/* Esto arregla el texto de las etiquetas (labels) por si acaso */
+label {
+  color: var(--text-gray) !important;
+  margin-bottom: 0.5rem;
+  display: block;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+/* Arreglar el texto "Total:" y etiquetas que se ven oscuras */
+.card p, .card span, .card label, .text-secondary {
+  color: var(--text-gray) !important; /* Usamos tu gris claro */
+}
+
+/* Forzar que los títulos de sección dentro de tarjetas sean blancos o neón */
+.card h4, .card h5, .card .h4, .card .h5 {
+  color: #ffffff !important;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* El precio siempre en neón (como ya lo tienes, pero por si acaso) */
+.text-neon, .fs-4 {
+  color: var(--neon-blue) !important;
+}
+
+/* Arreglar inputs para que el texto sea blanco al escribir */
+input.form-control {
+  color: #ffffff !important;
+}

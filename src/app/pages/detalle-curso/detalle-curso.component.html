@@ -1,1 +1,23 @@
-<p>detalle-curso works!</p>
+<div class="container mt-5">
+  @if (course) {
+    <div class="row">
+      <div class="col-md-6">
+        <img [src]="course.image" class="img-fluid rounded shadow-lg border-info" [alt]="course.title">
+      </div>
+      <div class="col-md-6 text-white">
+        <h1 class="text-neon">{{ course.title }}</h1>
+        <p class="lead mt-4">{{ course.description }}</p>
+        <div class="d-flex align-items-center mt-4">
+          <span class="fs-2 fw-bold text-success">${{ course.price }}</span>
+        </div>
+        <button class="btn btn-neon btn-lg mt-5">Añadir al Carrito</button>
+        <button class="btn btn-outline-secondary btn-lg mt-5 ms-3" routerLink="/catalog">Volver</button>
+      </div>
+    </div>
+  } @else {
+    <div class="text-center text-white">
+      <h2 class="text-neon">Buscando curso...</h2>
+      <div class="spinner-border text-info" role="status"></div>
+    </div>
+  }
+</div>

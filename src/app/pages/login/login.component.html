@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card p-4 shadow">
+        <h2 class="text-neon text-center mb-4">Login</h2>
+        <form>
+          <div class="mb-3">
+            <label class="form-label text-white">Email</label>
+            <input type="email" class="form-control bg-dark text-white border-secondary" placeholder="tu@email.com">
+          </div>
+          <div class="mb-3">
+            <label class="form-label text-white">Contraseña</label>
+            <input type="password" class="form-control bg-dark text-white border-secondary" placeholder="******">
+          </div>
+          <button type="submit" class="btn btn-neon w-100 mt-3">Entrar</button>
+        </form>
+        <p class="text-center mt-3 text-secondary">
+          ¿No tienes cuenta? <a routerLink="/register" class="text-neon">Regístrate</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

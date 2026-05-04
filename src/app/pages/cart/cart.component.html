@@ -1,1 +1,42 @@
-<p>cart works!</p>
+<div class="container mt-5 pt-5 text-white">
+  <h2 class="text-neon mb-4 text-center">TU CARRITO</h2>
+
+  <!-- 1. Añadidos paréntesis () a cartItems -->
+  @if (cartService.cartItems().length > 0) {
+    <div class="row">
+      <div class="col-md-8">
+        <!-- 2. Añadidos paréntesis () aquí también -->
+        @for (item of cartService.cartItems(); track item.id) {
+          <div class="card mb-3 p-3 bg-dark border-secondary d-flex flex-row align-items-center">
+            <img [src]="item.image" style="width: 80px; height: 50px; object-fit: cover;" class="rounded border-neon">
+            <div class="ms-3 flex-grow-1">
+              <h5 class="mb-0 text-white">{{ item.title }}</h5>
+              <span class="text-neon">{{ item.price }}€</span>
+            </div>
+          </div>
+        }
+      </div>
+
+      <div class="col-md-4">
+        <div class="card p-4 bg-dark border-neon shadow-lg">
+          <h4 class="text-white">Resumen</h4>
+          <hr class="text-secondary">
+          <div class="d-flex justify-content-between mb-4">
+            <span>Total:</span>
+            <!-- 3. Añadidos paréntesis () a totalPrice -->
+            <span class="text-neon fw-bold fs-4">{{ cartService.totalPrice() }}€</span>
+          </div>
+          <button class="btn btn-neon w-100 fw-bold" routerLink="/checkout">
+            PROCEDER AL PAGO
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+  @else {
+    <div class="text-center py-5">
+      <p class="text-secondary lead">No hay cursos en el carrito.</p>
+      <button class="btn btn-outline-info mt-3" routerLink="/catalog">Volver al catálogo</button>
+    </div>
+  }
+</div>

@@ -1,1 +1,25 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-info">
+  <div class="container">
+    <!-- El logo también debe llevarte al inicio -->
+    <a class="navbar-brand text-neon fw-bold" routerLink="/">PIXEL ACADEMY</a>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="text-neon">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/catalog" routerLinkActive="text-neon">Cursos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" routerLinkActive="text-neon">Entrar</a>
+        </li>
+        <li class="nav-item ms-lg-3">
+          <button class="btn btn-outline-info ms-lg-3 mt-3 mt-lg-0" routerLink="/cart">
+            CARRITO ({{ cartService.cartCount() }})
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
