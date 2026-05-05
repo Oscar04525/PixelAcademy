@@ -1,21 +1,43 @@
-<div class="container mt-5">
+<div class="container mt-5 pt-5 mb-5">
   @if (course) {
-    <div class="row">
+    <div class="row g-5 align-items-start">
+
+      <!-- Imagen -->
       <div class="col-md-6">
-        <img [src]="course.image" class="img-fluid rounded shadow-lg border-info" [alt]="course.title">
+        <img [src]="course.image"
+             class="img-fluid rounded shadow-lg"
+             style="border: 1px solid rgba(0,243,255,0.3); width: 100%; height: 380px; object-fit: cover;"
+             [alt]="course.title">
       </div>
+
+      <!-- Info del curso -->
       <div class="col-md-6 text-white">
-        <h1 class="text-neon">{{ course.title }}</h1>
-        <p class="lead mt-4">{{ course.description }}</p>
-        <div class="d-flex align-items-center mt-4">
-          <span class="fs-2 fw-bold text-success">${{ course.price }}</span>
+        <h1 class="text-neon mb-2">{{ course.title }}</h1>
+
+        <hr style="border-color: rgba(0,243,255,0.2);">
+
+        <p class="lead mt-3" style="color: #cbd5e1; line-height: 1.8;">
+          {{ course.description }}
+        </p>
+
+        <div class="mt-4 p-3 rounded" style="background: rgba(0,243,255,0.05); border: 1px solid rgba(0,243,255,0.15);">
+          <span class="text-secondary small">PRECIO</span>
+          <div class="fs-1 fw-bold text-neon">{{ course.price }}€</div>
         </div>
-        <button class="btn btn-neon btn-lg mt-5">Añadir al Carrito</button>
-        <button class="btn btn-outline-secondary btn-lg mt-5 ms-3" routerLink="/catalog">Volver</button>
+
+        <div class="d-flex gap-3 mt-4">
+          <button class="btn btn-neon btn-lg flex-grow-1" (click)="agregarAlCarrito()">
+            🛒 AÑADIR AL CARRITO
+          </button>
+          <button class="btn btn-outline-secondary btn-lg" routerLink="/catalog">
+            Volver
+          </button>
+        </div>
       </div>
+
     </div>
   } @else {
-    <div class="text-center text-white">
+    <div class="text-center text-white py-5">
       <h2 class="text-neon">Buscando curso...</h2>
       <div class="spinner-border text-info" role="status"></div>
     </div>
