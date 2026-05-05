@@ -62,6 +62,7 @@ body {
   align-items: center;
   text-align: center;
   background: radial-gradient(circle at 50% 50%, rgba(188, 19, 254, 0.15) 0%, transparent 60%);
+  padding-top: 6rem;
 }
 
 .hero-title {
