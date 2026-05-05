@@ -2,7 +2,6 @@
   <h2 class="text-neon text-center mb-5">CATÁLOGO DE CURSOS</h2>
 
   <div class="row g-4">
-    <!-- El bucle empieza aquí -->
     @for (course of courses; track course.id) {
       <div class="col-md-4">
         <div class="card bg-dark border-neon h-100 shadow-lg">
@@ -12,7 +11,6 @@
             <h5 class="card-title text-info">{{ course.title }}</h5>
             <p class="fs-4 text-neon fw-bold">{{ course.price }}€</p>
 
-            <!-- SOLO UN BOTÓN POR TARJETA -->
             <div class="d-grid gap-2 mt-3">
               <button class="btn btn-neon fw-bold" (click)="agregarAlCarrito(course)">
                 AÑADIR AL CARRITO
