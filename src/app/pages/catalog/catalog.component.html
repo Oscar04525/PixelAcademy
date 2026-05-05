@@ -1,9 +1,9 @@
 <div class="container mt-5 pt-5">
-  <h2 class="text-neon text-center mb-5">CATÁLOGO DE CURSOS</h2>
+  <h2 class="text-neon text-center mb-5 titulo-animado">CATÁLOGO DE CURSOS</h2>
 
   <div class="row g-4">
-    @for (course of courses; track course.id) {
-      <div class="col-md-4">
+    @for (course of courses; track course.id; let i = $index) {
+      <div class="col-md-4 card-animated" [style.animation-delay]="i * 120 + 'ms'">
         <div class="card bg-dark border-neon h-100 shadow-lg">
           <img [src]="course.image" class="card-img-top p-2 rounded" style="height: 200px; object-fit: cover;">
 
@@ -15,7 +15,8 @@
               <button class="btn btn-neon fw-bold" (click)="agregarAlCarrito(course)">
                 AÑADIR AL CARRITO
               </button>
-              <button class="btn btn-outline-secondary btn-sm" [routerLink]="['/detalle-curso', course.id]">                VER DETALLES
+              <button class="btn btn-outline-secondary btn-sm" [routerLink]="['/detalle-curso', course.id]">
+                VER DETALLES
               </button>
             </div>
           </div>
