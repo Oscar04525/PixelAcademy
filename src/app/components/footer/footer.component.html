@@ -1,34 +1,52 @@
-<footer class="footer border-top border-secondary border-opacity-10">
-  <div class="container">
-    <div class="row gy-4">
-      <!-- Columna Branding -->
-      <div class="col-md-4 text-center text-md-start">
-        <span class="navbar-brand mb-3 d-block">PIXEL ACADEMY</span>
-        <p class="small" style="color: var(--text-gray);">
-          Lleva tus habilidades de desarrollo al siguiente nivel con nuestra formación especializada en videojuegos.
+<footer class="footer-wrapper">
+
+  <div class="footer-glow-line"></div>
+
+  <div class="container py-5">
+    <div class="row gy-5 align-items-start">
+
+      <!-- Branding -->
+      <div class="col-md-4 d-flex flex-column justify-content-start">
+        <div class="footer-brand">
+          <span class="brand-cyan">PIXEL</span><span class="brand-purple">ACADEMY</span>
+        </div>
+        <p class="footer-desc mt-3">
+          Formación especializada en desarrollo de videojuegos. Aprende, crea y publica tu propio juego.
         </p>
-      </div>
-
-      <!-- Columna Navegación (Aquí están tus enlaces) -->
-      <div class="col-md-4 text-center">
-        <h5 class="text-white mb-3" style="font-size: 0.9rem; letter-spacing: 1px;">NAVEGACIÓN</h5>
-        <div class="d-flex flex-column align-items-center gap-2">
-          <a routerLink="/inicio" class="nav-link">Inicio</a>
-          <a routerLink="/catalog" class="nav-link">Catálogo</a>
-          <a routerLink="/contact" class="nav-link">Contacto</a>
+        <div class="footer-socials mt-4">
+          <a href="#" class="social-icon"><i class="bi bi-discord"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-twitch"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
         </div>
       </div>
 
-      <!-- Columna Legal / Redes -->
-      <div class="col-md-4 text-center text-md-end">
-        <h5 class="text-white mb-3" style="font-size: 0.9rem; letter-spacing: 1px;">COMUNIDAD</h5>
-        <div class="d-flex justify-content-center justify-content-md-end gap-3 mb-3 text-neon" style="font-size: 1.2rem;">
-          <i class="bi bi-discord pointer"></i>
-          <i class="bi bi-twitch pointer"></i>
-          <i class="bi bi-instagram pointer"></i>
-        </div>
-        <p class="small m-0" style="color: var(--text-gray);">© 2026 Todos los derechos reservados.</p>
+      <div class="col-md-4 col-6">
+        <p class="footer-heading">NAVEGAR</p>
+        <ul class="footer-links">
+          <li><a routerLink="/home">Inicio</a></li>
+          <li><a routerLink="/catalog">Cursos</a></li>
+          <li><a routerLink="/about">Sobre nosotros</a></li>
+          <li><a routerLink="/contact">Contacto</a></li>
+        </ul>
       </div>
+
+      <div class="col-md-4 col-6">
+        <p class="footer-heading">LEGAL</p>
+        <ul class="footer-links">
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Términos de uso</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+
     </div>
+
+    <div class="footer-divider mt-5"></div>
+
+    <div class="d-flex justify-content-center align-items-center pt-4 pb-2">
+      <p class="footer-copy mb-0">© 2026 PixelAcademy. Todos los derechos reservados.</p>
+    </div>
+
   </div>
 </footer>
