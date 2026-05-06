@@ -1,13 +1,11 @@
-/* 1. Quitamos el subrayado del enlace contenedor */
 .user-login-container,
 .user-login-container:hover,
 .user-login-container:focus {
-  text-decoration: none !important; /* El !important asegura que nada lo sobreescriba */
+  text-decoration: none !important;
   outline: none;
-  box-shadow: none; /* Evita sombras extrañas al hacer clic */
+  box-shadow: none;
 }
 
-/* 2. Ajustamos el icono para que no herede estilos de texto */
 .user-icon {
   font-size: 2rem;
   color: #00f3ff;
@@ -22,7 +20,6 @@
   line-height: 1;
   padding: 0;
 
-  /* Crucial para eliminar cualquier rastro de subrayado */
   text-decoration: none !important;
 
   transition: all 0.3s ease;
