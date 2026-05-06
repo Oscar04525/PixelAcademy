@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg fixed-top shadow-sm" style="background-color: #020617; border-bottom: 1px solid rgba(0, 243, 255, 0.2);">
   <div class="container">
-      <a class="navbar-brand fw-bold fs-3" routerLink="/home" style="letter-spacing: 2px;">
+    <a class="navbar-brand fw-bold fs-3" routerLink="/home" style="letter-spacing: 2px;">
       <span style="color: #00f3ff; text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);">PIXEL</span>
       <span style="color: #bc13fe; text-shadow: 0 0 10px rgba(188, 19, 254, 0.5);">ACADEMY</span>
     </a>
@@ -13,16 +13,22 @@
       <ul class="navbar-nav ms-auto align-items-center gap-3">
 
         <li class="nav-item">
-          <a class="nav-link text-white fw-semibold px-2" routerLink="/home" routerLinkActive="nav-active">INICIO</a>        </li>
+          <a class="nav-link text-white fw-semibold px-2" routerLink="/home" routerLinkActive="nav-active">INICIO</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link text-white fw-semibold px-2" routerLink="/catalog" routerLinkActive="nav-active">CURSOS</a>
-        <li class="nav-item">
-        <a class="nav-link text-white fw-semibold px-2" routerLink="/login" routerLinkActive="nav-active">LOGIN</a>        </li>
-        <a routerLink="/carrito" class="btn-carrito-neon">
-          CARRITO ({{ cartCount() }})
-        </a>
-        <li class="nav-item ms-lg-2">
+        </li>
 
+        <li class="nav-item">
+          <a class="nav-link user-login-container" routerLink="/login" routerLinkActive="nav-active">
+            <i class="bi bi-person-circle user-icon"></i>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/carrito" class="btn-carrito-neon">
+            CARRITO ({{ cartCount() }})
+          </a>
         </li>
 
       </ul>
