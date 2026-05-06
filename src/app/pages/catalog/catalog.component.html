@@ -24,4 +24,9 @@
       </div>
     }
   </div>
+  @if (toast()) {
+    <div class="toast-neon">
+      <i class="bi bi-cart-check me-2"></i>{{ toast() }}
+    </div>
+  }
 </div>

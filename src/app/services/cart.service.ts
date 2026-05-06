@@ -12,15 +12,13 @@ export class CartService {
   }
 
   totalPrice() {
-    return this.cart().reduce((acc, item) => acc + item.price, 0);
+    return parseFloat(this.cart().reduce((acc, item) => acc + item.price, 0).toFixed(2));
   }
 
-  // ESTA ES LA FUNCIÓN QUE DEBE ESTAR EN EL SERVICIO
   removeFromCart(productId: number) {
     this.cart.set(this.cart().filter(item => item.id !== productId));
   }
   addToCart(product: any) {
-    // Añadimos el nuevo producto a la lista actual
     this.cart.set([...this.cart(), product]);
     console.log('Producto añadido:', product);
   }

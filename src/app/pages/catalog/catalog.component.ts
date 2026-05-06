@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { CourseService } from '../../services/course.service';
@@ -17,13 +17,15 @@ export class CatalogComponent implements OnInit {
   public cartService = inject(CartService);
 
   courses: Course[] = [];
+  toast = signal<string | null>(null);
 
   ngOnInit(): void {
     this.courses = this.courseService.getCourses();
   }
 
   agregarAlCarrito(curso: Course) {
-    console.log('¡Botón pulsado! Intentando añadir:', curso.title); // <-- AÑADE ESTA LÍNEA
     this.cartService.addToCart(curso);
+    this.toast.set(`✅ "${curso.title}" añadido al carrito`);
+    setTimeout(() => this.toast.set(null), 4000);
   }
 }

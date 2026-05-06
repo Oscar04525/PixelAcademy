@@ -26,3 +26,29 @@
     transform: translateY(0);
   }
 }
+
+.toast-neon {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: #020617;
+  border: 1px solid #00f3ff;
+  color: #00f3ff;
+  padding: 0.9rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+  animation: toastIn 0.3s ease forwards, toastOut 0.8s ease 3.2s forwards;
+  z-index: 9999;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes toastOut {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(20px); }
+}
