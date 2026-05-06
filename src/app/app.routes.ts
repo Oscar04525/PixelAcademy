@@ -16,7 +16,7 @@ export const routes: Routes = [
   { path: 'detalle-curso/:id', component: DetalleCursoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'carrito', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutUsComponent },

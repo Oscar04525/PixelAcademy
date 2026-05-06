@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+
+import { Component, inject, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CartService } from '../../services/cart.service';
@@ -13,4 +14,5 @@ import { CartService } from '../../services/cart.service';
 export class NavbarComponent {
   // Inyectamos el servicio para que el HTML lo use
   public cartService = inject(CartService);
+  cartCount = computed(() => this.cartService.cart().length);
 }

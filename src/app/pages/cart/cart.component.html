@@ -1,39 +1,64 @@
-<div class="container mt-5 pt-5 text-white">
-  <h2 class="text-neon mb-4 text-center">TU CARRITO</h2>
+<div class="cart-wrapper">
+  <div class="container py-5">
 
-  @if (cartService.getCart().length > 0) {
-    <div class="row">
-      <div class="col-md-8">
+    <div class="text-center mb-5">
+      <h1 class="logo-text">TU CARRITO</h1>
+    </div>
+
+    <div class="row g-4">
+      <!-- LISTA DE CURSOS (LADO IZQUIERDO) -->
+      <div class="col-lg-8">
         @for (item of cartService.getCart(); track item.id) {
-          <div class="card mb-3 p-3 bg-dark border-secondary d-flex flex-row align-items-center">
-            <img [src]="item.image" style="width: 80px; height: 50px; object-fit: cover;" class="rounded">
-            <div class="ms-3 flex-grow-1">
-              <h5 class="mb-0 text-white">{{ item.title }}</h5>
-              <span class="text-neon">{{ item.price }}€</span>
+          <div class="cyber-card cian-glow mb-3 p-3">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center">
+                <!-- Imagen del curso -->
+                <img [src]="item.image" alt="Curso" class="img-curso-mini me-3">
+
+                <div>
+                  <h5 class="text-white mb-1">{{ item.title }}</h5>
+                  <p class="cian-text mb-0 fw-bold">{{ item.price }}€</p>
+                </div>
+              </div>
+
+              <!-- BOTÓN X PARA BORRAR -->
+              <button class="btn-borrar-pixel" (click)="cartService.removeFromCart(item.id)">
+                ✕
+              </button>
             </div>
+          </div>
+        } @empty {
+          <div class="cyber-card purple-glow p-5 text-center">
+            <h3 class="text-white">Tu carrito está vacío</h3>
+            <a routerLink="/catalog" class="cian-text mt-3 d-inline-block text-decoration-none">Ver cursos disponibles</a>
           </div>
         }
       </div>
 
-      <div class="col-md-4">
-        <div class="card p-4 bg-dark border-neon shadow-lg">
-          <h4 class="text-white">Resumen</h4>
-          <hr class="text-secondary">
-          <div class="d-flex justify-content-between mb-4">
-            <span>Total:</span>
-            <span class="text-neon fw-bold fs-4">{{ cartService.totalPrice() }}€</span>
+      <!-- RESUMEN (LADO DERECHO) -->
+      <div class="col-lg-4">
+        <div class="cyber-card purple-glow p-4">
+          <h4 class="purple-text mb-4">RESUMEN</h4>
+
+          <div class="d-flex justify-content-between mb-3">
+            <span class="text-gray">Subtotal:</span>
+            <span class="text-white">{{ cartService.totalPrice() }}€</span>
           </div>
-          <button class="btn btn-neon w-100 fw-bold" routerLink="/checkout">
+
+          <hr class="border-secondary">
+
+          <div class="d-flex justify-content-between mb-4">
+            <span class="text-white fs-5">TOTAL:</span>
+            <span class="purple-text fs-4 fw-bold">{{ cartService.totalPrice() }}€</span>
+          </div>
+
+          <!-- ESTE BOTÓN TE MANDA A LA OTRA PÁGINA -->
+          <button class="btn-proceder-pago" routerLink="/checkout">
             PROCEDER AL PAGO
           </button>
         </div>
       </div>
     </div>
-  }
-  @else {
-    <div class="text-center py-5">
-      <p class="text-secondary lead">No hay cursos en el carrito.</p>
-      <button class="btn btn-outline-info mt-3" routerLink="/catalog">Volver al catálogo</button>
-    </div>
-  }
+
+  </div>
 </div>

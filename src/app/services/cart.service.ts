@@ -1,33 +1,35 @@
-import { Injectable, signal, computed } from '@angular/core';
-import { Course } from '../model/course.model';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cart = signal<Course[]>([]);
+  // Supongamos que tu señal se llama 'cart'
+  public cart = signal<any[]>([]);
 
-  // Función para obtener los items
   getCart() {
     return this.cart();
   }
 
-  // Función para añadir al carrito
-  addToCart(course: Course) {
-    this.cart.update(items => [...items, course]);
-  }
-
-  // Función que cuenta cuántos hay (el número que sale en el botón)
-  totalItems() {
-    return this.cart().length;
-  }
-
-  // Función para calcular el precio total
   totalPrice() {
     return this.cart().reduce((acc, item) => acc + item.price, 0);
   }
 
+  // ESTA ES LA FUNCIÓN QUE DEBE ESTAR EN EL SERVICIO
+  removeFromCart(productId: number) {
+    this.cart.set(this.cart().filter(item => item.id !== productId));
+  }
+  addToCart(product: any) {
+    // Añadimos el nuevo producto a la lista actual
+    this.cart.set([...this.cart(), product]);
+    console.log('Producto añadido:', product);
+  }
   clearCart() {
-    this.cart.set([]);
+    this.cart.set([]); // Establece el carrito como un array vacío
+    console.log('Carrito vaciado con éxito');
+  }
+
+  totalItems() {
+    return "";
   }
 }

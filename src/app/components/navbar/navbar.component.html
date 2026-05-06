@@ -18,11 +18,11 @@
           <a class="nav-link text-white fw-semibold px-2" routerLink="/catalog" routerLinkActive="nav-active">CURSOS</a>
         <li class="nav-item">
         <a class="nav-link text-white fw-semibold px-2" routerLink="/login" routerLinkActive="nav-active">LOGIN</a>        </li>
-
+        <a routerLink="/carrito" class="btn-carrito-neon">
+          CARRITO ({{ cartCount() }})
+        </a>
         <li class="nav-item ms-lg-2">
-          <button class="btn-carrito-neon" routerLink="/checkout">
-            CARRITO ({{ cartService.totalItems() }})
-          </button>
+
         </li>
 
       </ul>
