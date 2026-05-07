@@ -248,8 +248,8 @@ input.form-control {
 }
 
 .btn-carrito-neon {
-  border: 2px solid #00f3ff;
-  color: #00f3ff;
+  border: none;
+  color: white;
   background: transparent;
   padding: 8px 22px;
   border-radius: 6px;
@@ -257,14 +257,15 @@ input.form-control {
   font-size: 0.8rem;
   text-transform: uppercase;
   transition: all 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+  box-shadow: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .btn-carrito-neon:hover {
-  background-color: #00f3ff;
-  color: #020617;
-  box-shadow: 0 0 20px #00f3ff;
+  color: #00f3ff;
+  background: transparent;
+  box-shadow: none;
 }
 
 .nav-active {
