@@ -1,99 +1,26 @@
-<div class="checkout-wrapper">
-  <div class="container py-5">
-
-    <!-- TÍTULO PRINCIPAL -->
-    <div class="text-center mb-5">
-      <h1 class="logo-text">PIXEL ACADEMY</h1>
+<div class="container py-5">
+  <div class="row g-4">
+    <div class="col-lg-8">
+      <h2 class="text-white mb-4">Finalizar Compra</h2>
     </div>
 
-    <div class="row g-5 justify-content-center">
+    <div class="col-lg-4">
+      <div class="cyber-card p-4" style="background: #0a0a12; border: 1px solid #bc13fe;">
+        <h4 class="purple-text mb-4">Tu Resumen</h4>
 
-      <!-- COLUMNA IZQUIERDA: DATOS DE ENVÍO (CIAN) -->
-      <div class="col-lg-5">
-        <div class="cyber-card cian-glow p-4 h-100">
-          <div class="card-header-cyber mb-4">
-            <h4 class="cian-text m-0">DATOS DE ENVÍO</h4>
+        @for (item of cartService.getCart(); track item.id) {
+          <div class="d-flex justify-content-between mb-2">
+            <span class="text-white opacity-75">{{ item.titulo }}</span>
+            <span class="purple-text fw-bold">{{ item.precio }}€</span>
           </div>
+        }
 
-          <div class="row g-3">
-            <div class="col-12">
-              <label class="text-gray small mb-1">NOMBRE COMPLETO:</label>
-              <input type="text" class="input-pixel-cian" placeholder="Tu nombre completo">
-            </div>
-            <div class="col-12">
-              <label class="text-gray small mb-1">CORREO ELECTRÓNICO:</label>
-              <input type="email" class="input-pixel-cian" placeholder="tu@email.com">
-            </div>
-            <div class="col-12">
-              <label class="text-gray small mb-1">DIRECCIÓN DE FACTURACIÓN:</label>
-              <input type="text" class="input-pixel-cian" placeholder="Calle, número, piso...">
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="col-lg-5">
-        <div class="cyber-card purple-glow p-4 h-100">
-          <div class="card-header-cyber mb-4">
-            <h4 class="purple-text m-0">MÉTODO DE PAGO</h4>
-          </div>
-
-          <!-- LISTA DE CURSOS CON BOTÓN DE ELIMINAR -->
-          <div class="mb-4 border-bottom border-secondary pb-3">
-            <p class="small text-gray mb-2">CURSOS EN TU CARRITO:</p>
-
-            @for (item of cartService.getCart(); track item.id) {
-              <div class="d-flex justify-content-between align-items-center mb-2 small">
-                <div class="d-flex align-items-center">
-                  <!-- BOTÓN "X" PARA BORRAR -->
-                  <button
-                    type="button"
-                    class="btn-borrar me-2"
-                    (click)="cartService.removeFromCart(item.id)"
-                    title="Eliminar curso">
-                    ✕
-                  </button>
-                  <span class="text-white opacity-75">{{ item.title }}</span>
-                </div>
-                <span class="purple-text fw-bold">{{ item.price }}€</span>
-              </div>
-            } @empty {
-              <p class="text-center text-secondary small">El carrito está vacío</p>
-            }
-          </div>
-
-          <div class="row g-3">
-            <div class="col-12">
-              <label class="text-gray small mb-1">NÚMERO DE TARJETA:</label>
-              <input type="text" class="input-pixel-purple" placeholder="0000 0000 0000 0000">
-            </div>
-            <div class="col-6">
-              <label class="text-gray small mb-1">FECHA DE CADUCIDAD:</label>
-              <input type="text" class="input-pixel-purple" placeholder="MM/AA">
-            </div>
-            <div class="col-6">
-              <label class="text-gray small mb-1">CÓDIGO CVV:</label>
-              <input type="text" class="input-pixel-purple" placeholder="***">
-            </div>
-          </div>
+        <hr class="text-white">
+        <div class="d-flex justify-content-between fs-4">
+          <span class="text-white">TOTAL:</span>
+          <span class="purple-text fw-bold">{{ cartService.totalPrice() }}€</span>
         </div>
       </div>
     </div>
-
-    <!-- SECCIÓN DE CONFIRMACIÓN -->
-    <div class="row mt-5">
-      <div class="col-12 text-center">
-        <div class="mb-4">
-          <span class="text-white fs-4">TOTAL A PAGAR: </span>
-          <span class="cian-text fs-2 fw-bold ms-2">{{ cartService.totalPrice() }}€</span>
-        </div>
-
-        <button class="btn-complete-order" (click)="pagar()">
-          CONFIRMAR PEDIDO
-        </button>
-      </div>
-    </div>
-
   </div>
 </div>

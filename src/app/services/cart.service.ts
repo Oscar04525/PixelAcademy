@@ -1,33 +1,35 @@
 import { Injectable, signal } from '@angular/core';
 
+export interface Curso {
+  id: number;
+  titulo: string;
+  precio: number;
+  imagen: string;
+  categoria: string;
+  nivel: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  // Supongamos que tu señal se llama 'cart'
-  public cart = signal<any[]>([]);
+  public cart = signal<Curso[]>([]);
 
-  getCart() {
-    return this.cart();
-  }
+  getCart() { return this.cart(); }
 
   totalPrice() {
-    return parseFloat(this.cart().reduce((acc, item) => acc + item.price, 0).toFixed(2));
+    return parseFloat(this.cart().reduce((acc, item) => acc + item.precio, 0).toFixed(2));
+  }
+
+  addToCart(product: Curso) {
+    this.cart.update(items => [...items, product]);
   }
 
   removeFromCart(productId: number) {
-    this.cart.set(this.cart().filter(item => item.id !== productId));
-  }
-  addToCart(product: any) {
-    this.cart.set([...this.cart(), product]);
-    console.log('Producto añadido:', product);
-  }
-  clearCart() {
-    this.cart.set([]); // Establece el carrito como un array vacío
-    console.log('Carrito vaciado con éxito');
+    this.cart.update(items => items.filter(item => item.id !== productId));
   }
 
-  totalItems() {
-    return "";
+  clearCart() {
+    this.cart.set([]);
   }
 }

@@ -1,64 +1,49 @@
 <div class="cart-wrapper">
   <div class="container py-5">
-
-    <div class="text-center mb-5">
-      <h1 class="logo-text">TU CARRITO</h1>
-    </div>
+    <h1 class="logo-text text-center mb-5">TU CARRITO</h1>
 
     <div class="row g-4">
-      <!-- LISTA DE CURSOS (LADO IZQUIERDO) -->
       <div class="col-lg-8">
         @for (item of cartService.getCart(); track item.id) {
           <div class="cyber-card cian-glow mb-3 p-3">
             <div class="d-flex align-items-center justify-content-between">
               <div class="d-flex align-items-center">
-                <!-- Imagen del curso -->
-                <img [src]="item.image" alt="Curso" class="img-curso-mini me-3">
+
+                <img [src]="item.imagen"
+                     [alt]="item.titulo"
+                     class="img-curso-mini me-3"
+                     style="width: 100px; height: 60px; object-fit: cover; border: 2px solid #00f3ff; image-rendering: pixelated;">
 
                 <div>
-                  <h5 class="text-white mb-1">{{ item.title }}</h5>
-                  <p class="cian-text mb-0 fw-bold">{{ item.price }}€</p>
+                  <h5 class="text-white mb-1">{{ item.titulo }}</h5>
+                  <p class="cian-text mb-0 fw-bold">{{ item.precio }}€</p>
                 </div>
               </div>
 
-              <!-- BOTÓN X PARA BORRAR -->
               <button class="btn-borrar-pixel" (click)="cartService.removeFromCart(item.id)">
                 ✕
               </button>
             </div>
           </div>
         } @empty {
-          <div class="cyber-card purple-glow p-5 text-center">
-            <h3 class="text-white">Tu carrito está vacío</h3>
-            <a routerLink="/catalog" class="cian-text mt-3 d-inline-block text-decoration-none">Ver cursos disponibles</a>
+          <div class="text-center p-5">
+            <h3 class="text-white">El carrito está vacío</h3>
           </div>
         }
       </div>
 
-      <!-- RESUMEN (LADO DERECHO) -->
       <div class="col-lg-4">
         <div class="cyber-card purple-glow p-4">
           <h4 class="purple-text mb-4">RESUMEN</h4>
-
-          <div class="d-flex justify-content-between mb-3">
-            <span class="text-gray">Subtotal:</span>
-            <span class="text-white">{{ cartService.totalPrice() }}€</span>
-          </div>
-
-          <hr class="border-secondary">
-
           <div class="d-flex justify-content-between mb-4">
             <span class="text-white fs-5">TOTAL:</span>
             <span class="purple-text fs-4 fw-bold">{{ cartService.totalPrice() }}€</span>
           </div>
-
-          <!-- ESTE BOTÓN TE MANDA A LA OTRA PÁGINA -->
           <button class="btn-proceder-pago" routerLink="/checkout">
             PROCEDER AL PAGO
           </button>
         </div>
       </div>
     </div>
-
   </div>
 </div>
