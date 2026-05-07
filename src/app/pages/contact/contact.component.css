@@ -1,0 +1,53 @@
+.contact-input {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: white !important;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-input:focus {
+  border-color: #00f3ff !important;
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.2) !important;
+  outline: none;
+  background: rgba(0, 243, 255, 0.03) !important;
+}
+
+.contact-input::placeholder {
+  color: #334155;
+}
+
+.contact-input option {
+  background: #020617;
+  color: white;
+}
+
+.contact-info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.3s ease;
+}
+
+.contact-info-card:hover {
+  border-color: rgba(0, 243, 255, 0.2);
+}
+
+.contact-info-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 10px;
+  background: rgba(0, 243, 255, 0.07);
+  border: 1px solid rgba(0, 243, 255, 0.15);
+  color: #00f3ff;
+  font-size: 1.2rem;
+}
