@@ -25,9 +25,18 @@ export class CatalogComponent implements OnInit {
     });
   }
 
+  /**
+   * Agrega un curso seleccionado al carrito global y dispara una notificación visual.
+   * @param curso Objeto de tipo Course proveniente del catálogo.
+   */
   agregarAlCarrito(curso: Course) {
     this.cartService.addToCart(curso);
-    this.toast.set(`✅ "${curso.titulo}" añadido al carrito`);
-    setTimeout(() => this.toast.set(null), 4000);
+    // Mensaje dinámico con estilo Cyberpunk
+    this.toast.set(`🚀 Módulo "${curso.titulo}" vinculado a tu terminal`);
+
+    // Limpiar el toast después de 4 segundos
+    setTimeout(() => {
+      this.toast.set(null);
+    }, 4000);
   }
 }

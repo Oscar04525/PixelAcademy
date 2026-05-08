@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CourseService } from '../../services/course.service';
 import { CartService } from '../../services/cart.service';
 import { Course } from '../../model/course.model';
-// Importaciones de animaciones
+import { map } from 'rxjs';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
@@ -35,8 +35,12 @@ export class DetalleCursoComponent implements OnInit {
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.courseService.getCourses().subscribe((courses: Course[]) => {
-      this.course = courses.find((c: Course) => c.id === id);
+
+    // Mejora: Filtramos directamente en el stream de datos
+    this.courseService.getCourses().pipe(
+      map((courses: Course[]) => courses.find(c => c.id === id))
+    ).subscribe(course => {
+      this.course = course;
     });
   }
 
