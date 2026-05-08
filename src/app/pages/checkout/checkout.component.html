@@ -1,26 +1,97 @@
-<div class="container py-5">
-  <div class="row g-4">
-    <div class="col-lg-8">
-      <h2 class="text-white mb-4">Finalizar Compra</h2>
-    </div>
+@if (!pagoCometido()) {
 
-    <div class="col-lg-4">
-      <div class="cyber-card p-4" style="background: #0a0a12; border: 1px solid #bc13fe;">
-        <h4 class="purple-text mb-4">Tu Resumen</h4>
+  <div class="container py-5 mt-5" style="margin-top: 6rem !important;">
+    <div class="row g-4">
+      <div class="col-lg-8">
 
-        @for (item of cartService.getCart(); track item.id) {
-          <div class="d-flex justify-content-between mb-2">
-            <span class="text-white opacity-75">{{ item.titulo }}</span>
-            <span class="purple-text fw-bold">{{ item.precio }}€</span>
+        <div class="cyber-card cian-glow p-4 mb-4">
+          <h4 class="cian-text mb-4">DATOS DE ENVÍO</h4>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="text-white small mb-2">Nombre</label>
+              <input type="text" class="form-control" placeholder="Tu nombre">
+            </div>
+            <div class="col-md-6">
+              <label class="text-white small mb-2">Email</label>
+              <input type="email" class="form-control" placeholder="tu@email.com">
+            </div>
+            <div class="col-12">
+              <label class="text-white small mb-2">Dirección de facturación</label>
+              <input type="text" class="form-control" placeholder="Calle, número, piso...">
+            </div>
           </div>
-        }
+        </div>
 
-        <hr class="text-white">
-        <div class="d-flex justify-content-between fs-4">
-          <span class="text-white">TOTAL:</span>
-          <span class="purple-text fw-bold">{{ cartService.totalPrice() }}€</span>
+        <div class="cyber-card cian-glow p-4">
+          <h4 class="cian-text mb-4">MÉTODO DE PAGO</h4>
+          <div class="mb-3">
+            <select class="form-select form-control">
+              <option>Tarjeta de Crédito / Débito</option>
+              <option>PayPal</option>
+              <option>Transferencia Bancaria</option>
+            </select>
+          </div>
+          <div class="row g-3">
+            <div class="col-md-8">
+              <label class="text-white small mb-2">Número de Tarjeta</label>
+              <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+            </div>
+            <div class="col-md-4">
+              <label class="text-white small mb-2">CVC</label>
+              <input type="text" class="form-control" placeholder="123">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-4">
+        <div class="cyber-card p-4" style="background: #0a0a12; border: 1px solid #bc13fe;">
+          <h4 class="purple-text mb-4">RESUMEN</h4>
+
+          @for (item of cartService.getCart(); track item.id) {
+            <div class="d-flex justify-content-between mb-2">
+              <span class="text-white opacity-75">{{ item.titulo }}</span>
+              <span class="purple-text fw-bold">{{ item.precio }}€</span>
+            </div>
+          }
+
+          <hr class="text-white opacity-25">
+          <div class="d-flex justify-content-between fs-5 mb-4">
+            <span class="text-white">TOTAL:</span>
+            <span class="purple-text fw-bold fs-4">{{ cartService.totalPrice() }}€</span>
+          </div>
+
+          <button class="btn-proceder-pago w-100" (click)="pagar()">
+            CONFIRMAR PEDIDO
+          </button>
         </div>
       </div>
+
     </div>
   </div>
-</div>
+
+} @else {
+
+  <div class="container d-flex flex-column align-items-center justify-content-center text-center pago-ok-wrapper">
+
+    <div class="tick-circle mb-4">
+      <i class="bi bi-check-lg tick-icon"></i>
+    </div>
+
+    <h1 class="fw-bold mb-2">
+      <span style="color: #00f3ff; text-shadow: 0 0 15px rgba(0,243,255,0.4);">¡PAGO</span>
+      <span style="color: #bc13fe; text-shadow: 0 0 15px rgba(188,19,254,0.4);"> COMPLETADO!</span>
+    </h1>
+
+    <p class="text-secondary mt-2 mb-1 fs-5">Gracias por tu compra.</p>
+    <p class="text-secondary mb-5">Recibirás un email de confirmación con los accesos a tus cursos.</p>
+
+    <div class="d-flex gap-3">
+      <button class="btn-proceder-pago px-5" routerLink="/catalog">VER MÁS CURSOS</button>
+      <button class="btn btn-outline-secondary px-5 py-3" routerLink="/home">INICIO</button>
+    </div>
+
+  </div>
+
+}

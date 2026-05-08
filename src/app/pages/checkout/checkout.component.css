@@ -1,0 +1,29 @@
+.pago-ok-wrapper {
+  min-height: 80vh;
+  padding-top: 6rem;
+}
+
+.tick-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(0, 243, 255, 0.05);
+  border: 2px solid #00f3ff;
+  box-shadow: 0 0 40px rgba(0, 243, 255, 0.3), 0 0 80px rgba(0, 243, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: tickPop 0.5s ease forwards;
+}
+
+.tick-icon {
+  font-size: 3.5rem;
+  color: #00f3ff;
+  text-shadow: 0 0 20px rgba(0, 243, 255, 0.6);
+}
+
+@keyframes tickPop {
+  0%   { transform: scale(0); opacity: 0; }
+  70%  { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}

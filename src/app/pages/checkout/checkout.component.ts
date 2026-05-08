@@ -1,20 +1,21 @@
-import { Component, inject } from '@angular/core'; // Añade inject
+import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../../services/cart.service'; // Importa tu servicio
+import { RouterLink } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css'
 })
 export class CheckoutComponent {
-  // Esta es la línea que te faltaba para que el HTML funcione
   public cartService = inject(CartService);
+  pagoCometido = signal(false);
 
   pagar() {
-    alert('¡Gracias por tu compra!');
-    this.cartService.clearCart(); // Vacía el carrito al terminar[cite: 1]
+    this.pagoCometido.set(true);
+    this.cartService.clearCart();
   }
 }
