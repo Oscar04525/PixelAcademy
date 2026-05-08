@@ -2,7 +2,7 @@
   {
     "id": 1,
     "titulo": "Unity 2D/3D",
-    "description": "Domina el desarrollo de videojuegos con Unity. Aprenderás desde la interfaz básica hasta mecánicas complejas, física de objetos y exportación multiplataforma. [cite: 1, 2]",
+    "description": "Domina el desarrollo de videojuegos con Unity. Aprenderás desde la interfaz básica hasta mecánicas complejas, física de objetos y exportación multiplataforma.",
     "precio": 29.99,
     "imagen": "https://user-images.githubusercontent.com/45159366/147710948-fe9a4d6f-38ff-4e57-ad5f-1095e48192b7.png",
     "categoria": "Motor de Juegos",
@@ -11,7 +11,7 @@
   {
     "id": 2,
     "titulo": "Unreal Engine 5",
-    "description": "Sumérgete en el motor más potente de la industria. Domina herramientas como Lumen y Nanite para crear entornos hiperrealistas y cinemáticas de alta fidelidad. [cite: 3, 4, 5, 6]",
+    "description": "Sumérgete en el motor más potente de la industria. Domina herramientas como Lumen y Nanite para crear entornos hiperrealistas y cinemáticas de alta fidelidad.",
     "precio": 49.99,
     "imagen": "https://images.squarespace-cdn.com/content/57684c23e58c629692049787/1598372204601-28MOBASZS88E21EUXDB0/Unreal+Engine+5+Demonstration?format=1500w",
     "categoria": "Motor de Juegos",
@@ -20,7 +20,7 @@
   {
     "id": 3,
     "titulo": "Pixel Art Master",
-    "description": "Aprende el arte de la limitación. Crea personajes, fondos y animaciones cuadro a cuadro con una estética retro perfecta para juegos indie modernos. [cite: 7, 8]",
+    "description": "Aprende el arte de la limitación. Crea personajes, fondos y animaciones cuadro a cuadro con una estética retro perfecta para juegos indie modernos.",
     "precio": 19.99,
     "imagen": "https://i.etsystatic.com/42415510/r/il/03397a/5644741633/il_570xN.5644741633_42q0.jpg",
     "categoria": "Arte",
@@ -29,7 +29,7 @@
   {
     "id": 4,
     "titulo": "Modelado 3D",
-    "description": "Desde el esculpido digital hasta el retopology. Domina el flujo de trabajo para crear assets optimizados listos para ser usados en cualquier motor de juegos. [cite: 9, 10, 11]",
+    "description": "Desde el esculpido digital hasta el retopology. Domina el flujo de trabajo para crear assets optimizados listos para ser usados en cualquier motor de juegos.",
     "precio": 34.99,
     "imagen": "https://p.turbosquid.com/ts-thumb/XH/1DeWv3/TnMkNUE5/3/png/1374285915/1920x1080/fit_q87/382dae9b78955161f8644e3296af39acf046ec90/3.jpg",
     "categoria": "Arte",
@@ -38,7 +38,7 @@
   {
     "id": 5,
     "titulo": "Desarrollo Mobile",
-    "description": "Lleva tus ideas al bolsillo de todos. Aprende las particularidades del desarrollo para iOS y Android, optimización de recursos y controles táctiles. [cite: 12, 13]",
+    "description": "Lleva tus ideas al bolsillo de todos. Aprende las particularidades del desarrollo para iOS y Android, optimización de recursos y controles táctiles.",
     "precio": 24.99,
     "imagen": "https://www.qualitydevs.com/wp-content/uploads/2021/03/Desarrollo-apps-moviles.jpg",
     "categoria": "Desarrollo",
@@ -47,7 +47,7 @@
   {
     "id": 6,
     "titulo": "Iluminación Avanzada",
-    "description": "El secreto de una buena atmósfera es la luz. Aprende técnicas de iluminación global, bakeado de sombras y post-procesado para dar vida a tus escenas. [cite: 14]",
+    "description": "El secreto de una buena atmósfera es la luz. Aprende técnicas de iluminación global, bakeado de sombras y post-procesado para dar vida a tus escenas.",
     "precio": 39.99,
     "imagen": "https://dconceptgroup.com/wp-content/uploads/2024/08/iluminacion-en-data-centers.jpg",
     "categoria": "Gráficos",
