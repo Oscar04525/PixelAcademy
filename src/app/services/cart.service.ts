@@ -1,19 +1,11 @@
 import { Injectable, signal } from '@angular/core';
-
-export interface Curso {
-  id: number;
-  titulo: string;
-  precio: number;
-  imagen: string;
-  categoria: string;
-  nivel: string;
-}
+import { Course } from '../model/course.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  public cart = signal<Curso[]>([]);
+  public cart = signal<Course[]>([]);
 
   getCart() { return this.cart(); }
 
@@ -21,7 +13,7 @@ export class CartService {
     return parseFloat(this.cart().reduce((acc, item) => acc + item.precio, 0).toFixed(2));
   }
 
-  addToCart(product: Curso) {
+  addToCart(product: Course) {
     this.cart.update(items => [...items, product]);
   }
 
@@ -31,5 +23,9 @@ export class CartService {
 
   clearCart() {
     this.cart.set([]);
+  }
+
+  totalItems() {
+    return this.cart().length;
   }
 }

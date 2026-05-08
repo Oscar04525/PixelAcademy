@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "titulo": "Unity 2D/3D",
+    "description": "Domina el motor de juegos más popular del mundo. Aprenderás C# desde cero, física de objetos, animaciones y sistemas de partículas.",
+    "precio": 29.99,
+    "imagen": "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800",
+    "categoria": "Motor de Juegos",
+    "nivel": "Principiante"
+  },
+  {
+    "id": 2,
+    "titulo": "Unreal Engine 5",
+    "description": "El motor usado en los AAA más grandes de la industria. Aprende Blueprints, Lumen y Nanite para crear experiencias next-gen.",
+    "precio": 49.99,
+    "imagen": "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?q=80&w=800",
+    "categoria": "Motor de Juegos",
+    "nivel": "Avanzado"
+  },
+  {
+    "id": 3,
+    "titulo": "Pixel Art Master",
+    "description": "Aprende a crear sprites, tilesets y animaciones con estética retro profesional usando Aseprite.",
+    "precio": 19.99,
+    "imagen": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800",
+    "categoria": "Arte",
+    "nivel": "Principiante"
+  },
+  {
+    "id": 4,
+    "titulo": "Modelado 3D",
+    "description": "Domina Blender completamente desde cero. Modelado, escultura, rigging y renderizado con Cycles y EEVEE.",
+    "precio": 34.99,
+    "imagen": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=800",
+    "categoria": "Arte",
+    "nivel": "Intermedio"
+  },
+  {
+    "id": 5,
+    "titulo": "Desarrollo Mobile",
+    "description": "Crea juegos para iOS y Android usando Unity. Optimización, monetización y publicación en tiendas.",
+    "precio": 24.99,
+    "imagen": "https://images.pexels.com/photos/4009402/pexels-photo-4009402.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "categoria": "Mobile",
+    "nivel": "Intermedio"
+  },
+  {
+    "id": 6,
+    "titulo": "Iluminación Avanzada",
+    "description": "Ray Tracing, baked lighting, HDRi y efectos de post-procesado profesional. Compatible con Unity y Unreal.",
+    "precio": 39.99,
+    "imagen": "https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=800",
+    "categoria": "Gráficos",
+    "nivel": "Avanzado"
+  }
+]

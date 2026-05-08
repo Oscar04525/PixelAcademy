@@ -1,15 +1,38 @@
-<div class="container py-5" *ngIf="course">
-  <div class="row align-items-center">
-    <div class="col-md-6">
-      <img [src]="course.imagen" [alt]="course.titulo" class="img-fluid rounded shadow-lg">
-    </div>
-    <div class="col-md-6 text-white">
-      <h1 class="display-4">{{ course.titulo }}</h1>
-      <p class="badge bg-primary fs-6">{{ course.categoria }}</p>
-      <div class="my-4">
-        <span class="h1 text-info">{{ course.precio }}€</span>
+<div class="container py-5 mt-5" style="margin-top: 6rem !important;">
+  @if (course) {
+    <div class="row g-5 align-items-start">
+      <div class="col-md-6">
+        <img [src]="course.imagen"
+             [alt]="course.titulo"
+             class="img-fluid rounded shadow-lg w-100"
+             style="height: 380px; object-fit: cover; border: 1px solid rgba(0,243,255,0.3);">
       </div>
-      <button (click)="agregarAlCarrito()" class="btn btn-lg btn-info w-100">AÑADIR AL CARRITO</button>
+      <div class="col-md-6 text-white">
+        <h1 class="text-neon mb-2">{{ course.titulo }}</h1>
+        <span class="badge mb-3" style="background: #bc13fe;">{{ course.categoria }}</span>
+        <span class="text-secondary small ms-2">| {{ course.nivel }}</span>
+        <hr style="border-color: rgba(0,243,255,0.2);">
+        <p class="lead mt-3" style="color: #cbd5e1; line-height: 1.8;">
+          {{ course.description }}
+        </p>
+        <div class="mt-4 p-3 rounded" style="background: rgba(0,243,255,0.05); border: 1px solid rgba(0,243,255,0.15);">
+          <span class="text-secondary small">PRECIO</span>
+          <div class="fs-1 fw-bold text-neon">{{ course.precio }}€</div>
+        </div>
+        <div class="d-flex gap-3 mt-4">
+          <button class="btn btn-neon btn-lg flex-grow-1" (click)="agregarAlCarrito()">
+            🛒 AÑADIR AL CARRITO
+          </button>
+          <button class="btn btn-outline-secondary btn-lg" onclick="history.back()">
+            Volver
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
+  } @else {
+    <div class="text-center text-white py-5">
+      <h2 class="text-neon">Buscando curso...</h2>
+      <div class="spinner-border text-info" role="status"></div>
+    </div>
+  }
 </div>

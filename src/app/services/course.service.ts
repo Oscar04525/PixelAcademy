@@ -1,15 +1,16 @@
-import { Injectable } from '@angular/core';
-import { Curso } from './cart.service'; // Importa la interfaz que creamos en el servicio del carrito
-import cursosData from '../../../public/data/cursos.json';
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Course } from '../model/course.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
-  // Cambiamos el tipo de Course[] a Curso[]
-  private courses: Curso[] = cursosData;
+  private http = inject(HttpClient);
+  private jsonUrl = 'cursos.json';
 
-  getCourses(): Curso[] {
-    return this.courses;
+  getCourses(): Observable<Course[]> {
+    return this.http.get<Course[]>(this.jsonUrl);
   }
 }

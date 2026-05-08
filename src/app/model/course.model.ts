@@ -1,7 +1,9 @@
 export interface Course {
   id: number;
-  title: string;
+  titulo: string;
   description: string;
-  price: number;
-  image: string;
+  precio: number;
+  imagen: string;
+  categoria: string;
+  nivel: string;
 }
