@@ -8,7 +8,7 @@ import { Course } from '../model/course.model';
 })
 export class CourseService {
   private http = inject(HttpClient);
-  private jsonUrl = 'cursos.json';
+  private jsonUrl = 'data/cursos.json';
 
   getCourses(): Observable<Course[]> {
     return this.http.get<Course[]>(this.jsonUrl);

@@ -8,6 +8,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { DetalleCursoComponent } from './pages/detalle-curso/detalle-curso.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { NotFoundComponent } from './components/not-found/not-found.component'; // <--- 1. Importar
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -20,5 +21,5 @@ export const routes: Routes = [
   { path: 'checkout', component: CheckoutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutUsComponent },
-  { path: '**', redirectTo: 'home' }
+  { path: '**', component: NotFoundComponent }
 ];
