@@ -9,57 +9,51 @@
   </div>
 
   <div class="row g-4">
-    @for (course of courses; track course.id) {
-      <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-        <div class="cyber-card h-100 d-flex flex-column p-3 w-100"
-             style="background: #0a0a12; border: 1px solid rgba(0, 243, 255, 0.3); border-radius: 12px; transition: 0.3s;">
-
-          <div style="height: 180px; width: 100%; overflow: hidden; border-radius: 8px; margin-bottom: 1rem;">
-            <img [src]="course.imagen"
-                 [alt]="course.titulo"
-                 class="w-100 h-100"
-                 style="object-fit: cover; border-bottom: 2px solid #00f3ff;">
+    @if (isLoading()) {
+      @for (i of [1,2,3,4,5,6]; track i) {
+        <div class="col-md-6 col-lg-4">
+          <div class="skeleton-card p-3">
+            <div class="skeleton-img"></div>
+            <div class="skeleton-text" style="width: 80%;"></div>
+            <div class="skeleton-text" style="width: 60%;"></div>
+            <div class="skeleton-text" style="width: 40%; margin-top: 3rem;"></div>
           </div>
-
-          <div class="card-body d-flex flex-column flex-grow-1 p-0">
-
-            <h5 class="text-white mb-2" style="min-height: 2.8rem; line-height: 1.4;">
-              {{ course.titulo }}
-            </h5>
-
-            <div class="mb-3 d-flex align-items-center gap-2">
-              <span class="badge" style="background: #bc13fe;">{{ course.categoria }}</span>
-              <span class="text-secondary small">| {{ course.nivel }}</span>
+        </div>
+      }
+    } @else {
+      @for (course of courses; track course.id) {
+        <div class="col-md-6 col-lg-4 d-flex align-items-stretch fade-in-up">
+          <div class="cyber-card h-100 d-flex flex-column p-3 w-100">
+            <div class="course-img-container">
+              <img [src]="course.imagen" [alt]="course.titulo" class="w-100 h-100 image-glow">
             </div>
 
-            <div class="mt-auto">
-              <p class="fw-bold fs-3 mb-3" style="color: #00f3ff; text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);">
-                {{ course.precio }}€
-              </p>
+            <div class="card-body d-flex flex-column flex-grow-1 p-0">
+              <h5 class="text-white mb-2">{{ course.titulo }}</h5>
+              <div class="mb-3">
+                <span class="badge" style="background: #bc13fe;">{{ course.categoria }}</span>
+              </div>
 
-              <div class="d-flex gap-2">
-                <button class="btn btn-outline-info" [routerLink]="['/detalle-curso', course.id]">
-                  Ver más
-                </button>
-
-                <button (click)="agregarAlCarrito(course)"
-                        class="btn btn-primary w-50 fw-bold shadow-sm">
-                  Añadir
-                </button>
+              <div class="mt-auto">
+                <p class="fw-bold fs-3 mb-3" style="color: #00f3ff;">{{ course.precio }}€</p>
+                <div class="d-flex gap-2">
+                  <button class="btn btn-outline-info w-50" [routerLink]="['/detalle-curso', course.id]">Detalles</button>
+                  <button (click)="agregarAlCarrito(course)" class="btn btn-primary w-50 fw-bold">Añadir</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      }
     }
   </div>
 
   @if (toast()) {
     <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050;">
-      <div class="toast show align-items-center text-white bg-dark border-info" role="alert">
+      <div class="toast show align-items-center text-white bg-dark border-info shadow-lg" role="alert">
         <div class="d-flex">
           <div class="toast-body">
-            <i class="bi bi-cart-plus-fill text-info me-2"></i> {{ toast() }}
+            <i class="bi bi-cpu me-2"></i> {{ toast() }}
           </div>
           <button type="button" class="btn-close btn-close-white me-2 m-auto" (click)="toast.set(null)"></button>
         </div>

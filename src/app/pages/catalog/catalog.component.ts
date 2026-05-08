@@ -17,24 +17,23 @@ export class CatalogComponent implements OnInit {
   public cartService = inject(CartService);
 
   courses: Course[] = [];
+  isLoading = signal(true); // Control de carga para el Skeleton
   toast = signal<string | null>(null);
 
   ngOnInit(): void {
-    this.courseService.getCourses().subscribe(data => {
-      this.courses = data;
-    });
+    // Simulamos carga de red de 1.5 segundos
+    setTimeout(() => {
+      this.courseService.getCourses().subscribe(data => {
+        this.courses = data;
+        this.isLoading.set(false);
+      });
+    }, 1500);
   }
 
-  /**
-   * Agrega un curso seleccionado al carrito global y dispara una notificación visual.
-   * @param curso Objeto de tipo Course proveniente del catálogo.
-   */
   agregarAlCarrito(curso: Course) {
     this.cartService.addToCart(curso);
-    // Mensaje dinámico con estilo Cyberpunk
     this.toast.set(`🚀 Módulo "${curso.titulo}" vinculado a tu terminal`);
 
-    // Limpiar el toast después de 4 segundos
     setTimeout(() => {
       this.toast.set(null);
     }, 4000);
