@@ -1,49 +1,69 @@
-<div class="cart-wrapper">
-  <div class="container py-5">
-    <h1 class="logo-text text-center mb-5">TU CARRITO</h1>
+<div class="container py-5 mt-5" style="margin-top: 6rem !important;">
+  <div class="row mb-4">
+    <div class="col text-center">
+      <h2 class="text-white logo-text">TU <span style="color: #00f3ff;">CARRITO</span></h2>
+      <div style="height: 2px; width: 60px; background: #00f3ff; margin: 10px auto;"></div>
+    </div>
+  </div>
 
-    <div class="row g-4">
+  @if (cartService.cart().length > 0) {
+    <div class="row">
       <div class="col-lg-8">
-        @for (item of cartService.getCart(); track item.id) {
-          <div class="cyber-card cian-glow mb-3 p-3">
-            <div class="d-flex align-items-center justify-content-between">
-              <div class="d-flex align-items-center">
-
-                <img [src]="item.imagen"
-                     [alt]="item.titulo"
-                     class="img-curso-mini me-3"
-                     style="width: 100px; height: 60px; object-fit: cover; border: 2px solid #00f3ff; image-rendering: pixelated;">
-
-                <div>
-                  <h5 class="text-white mb-1">{{ item.titulo }}</h5>
-                  <p class="cian-text mb-0 fw-bold">{{ item.precio }}€</p>
+        @for (item of cartService.cart(); track item.id) {
+          <div class="card bg-dark text-white mb-3 border-info shadow-sm"
+               style="border: 1px solid rgba(0, 243, 255, 0.3);">
+            <div class="row g-0 align-items-center p-2">
+              <div class="col-md-3">
+                <img [src]="item.imagen" class="img-fluid rounded" [alt]="item.titulo" style="max-height: 100px; object-fit: cover;">
+              </div>
+              <div class="col-md-6">
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.titulo }}</h5>
+                  <p class="text-info fw-bold mb-0">{{ item.precio }}€</p>
                 </div>
               </div>
-
-              <button class="btn-borrar-pixel" (click)="cartService.removeFromCart(item.id)">
-                ✕
-              </button>
+              <div class="col-md-3 text-center">
+                <button (click)="eliminarCurso(item.id)" class="btn btn-outline-danger btn-sm">
+                  Eliminar
+                </button>
+              </div>
             </div>
-          </div>
-        } @empty {
-          <div class="text-center p-5">
-            <h3 class="text-white">El carrito está vacío</h3>
           </div>
         }
       </div>
 
       <div class="col-lg-4">
-        <div class="cyber-card purple-glow p-4">
-          <h4 class="purple-text mb-4">RESUMEN</h4>
-          <div class="d-flex justify-content-between mb-4">
-            <span class="text-white fs-5">TOTAL:</span>
-            <span class="purple-text fs-4 fw-bold">{{ cartService.totalPrice() }}€</span>
+        <div class="card bg-dark text-white border-info p-4" style="border: 1px solid #00f3ff;">
+          <h4 class="mb-3 text-uppercase" style="letter-spacing: 1px;">Resumen</h4>
+          <div class="d-flex justify-content-between mb-3">
+            <span class="text-white-50">Productos:</span>
+            <span>{{ cartService.totalItems() }}</span>
           </div>
-          <button class="btn-proceder-pago" routerLink="/checkout">
-            PROCEDER AL PAGO
+          <hr class="bg-info opacity-50">
+          <div class="d-flex justify-content-between mb-4">
+            <span class="fs-5 text-white">Total:</span>
+            <span class="fs-4 fw-bold" style="color: #00f3ff; text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);">
+              {{ cartService.totalPrice() }}€
+            </span>
+          </div>
+
+          <button routerLink="/checkout"
+                  class="btn btn-primary w-100 fw-bold py-3 shadow-lg text-uppercase"
+                  style="background: linear-gradient(45deg, #00f3ff, #bc13fe); border: none; letter-spacing: 1px;">
+            Proceder al Pago
           </button>
+
+          <a routerLink="/catalog" class="btn btn-link text-info w-100 mt-3 text-decoration-none small">
+            ← Seguir explorando
+          </a>
         </div>
       </div>
     </div>
-  </div>
+  } @else {
+    <div class="text-center py-5">
+      <h4 class="text-secondary">Tu terminal está vacía</h4>
+      <p class="text-muted">Añade algunos módulos de entrenamiento para continuar.</p>
+      <button routerLink="/catalog" class="btn btn-outline-info mt-3 px-4">VER CATÁLOGO</button>
+    </div>
+  }
 </div>

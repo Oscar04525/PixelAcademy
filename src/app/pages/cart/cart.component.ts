@@ -19,5 +19,9 @@ export class CartComponent {
   eliminarCurso(id: number) {
     this.cartService.removeFromCart(id);
   }
-
+  finalizarCompra() {
+    alert('¡Compra realizada con éxito! Gracias por confiar en nuestra academia.');
+    this.cartService.clearCart();
+  }
 }
+
