@@ -13,16 +13,21 @@ import { CartService } from '../../services/cart.service';
 export class CheckoutComponent {
   public cartService = inject(CartService);
 
-  // Señal para controlar si el pago ya se realizó
   pagoCometido = signal(false);
-
-  // Señal para el estado de "Procesando..." (esto da puntos extra de UX)
   cargandoProceso = signal(false);
 
 
+  metodoPago = signal<string>('tarjeta');
+
+
+  cambiarMetodo(event: Event) {
+    const target = event.target as HTMLSelectElement;
+    this.metodoPago.set(target.value);
+  }
+
   pagar() {
-    // 1. Iniciamos el estado de carga
     this.cargandoProceso.set(true);
+
     setTimeout(() => {
       this.pagoCometido.set(true);
       this.cartService.clearCart();

@@ -1,16 +1,38 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, computed, effect } from '@angular/core';
 import { Course } from '../model/course.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  public cart = signal<Course[]>([]);
+  private storageKey = 'cyber_cart_data';
+  public cart = signal<Course[]>(this.loadFromStorage());
 
-  getCart() { return this.cart(); }
 
-  totalPrice() {
-    return parseFloat(this.cart().reduce((acc, item) => acc + item.precio, 0).toFixed(2));
+  public totalPrice = computed(() => {
+    const total = this.cart().reduce((acc, item) => acc + item.precio, 0);
+    return parseFloat(total.toFixed(2));
+  });
+
+  public totalItems = computed(() => this.cart().length);
+
+  constructor() {
+
+    effect(() => {
+      localStorage.setItem(this.storageKey, JSON.stringify(this.cart()));
+    });
+  }
+
+
+  private loadFromStorage(): Course[] {
+    const saved = localStorage.getItem(this.storageKey);
+    return saved ? JSON.parse(saved) : [];
+  }
+
+
+
+  getCart() {
+    return this.cart();
   }
 
   addToCart(product: Course) {
@@ -23,9 +45,5 @@ export class CartService {
 
   clearCart() {
     this.cart.set([]);
-  }
-
-  totalItems() {
-    return this.cart().length;
   }
 }

@@ -22,23 +22,43 @@
 
         <div class="cyber-card cian-glow p-4">
           <h4 class="cian-text mb-4 text-uppercase" style="letter-spacing: 2px;">Método de Pago</h4>
-          <div class="mb-3">
-            <select class="form-select bg-dark text-white border-secondary">
-              <option>💳 Tarjeta de Crédito / Débito</option>
-              <option>🅿️ PayPal</option>
-              <option>₿ Criptomonedas</option>
+          <div class="mb-4">
+            <select class="form-select bg-dark text-white border-secondary" (change)="cambiarMetodo($event)">
+              <option value="tarjeta">💳 Tarjeta de Crédito / Débito</option>
+              <option value="paypal">🅿️ PayPal</option>
+              <option value="cripto">₿ Criptomonedas</option>
             </select>
           </div>
-          <div class="row g-3">
-            <div class="col-md-8">
-              <label class="text-white small mb-2 opacity-75">Número de Tarjeta</label>
-              <input type="text" class="form-control bg-transparent text-white border-secondary" placeholder="0000 0000 0000 0000">
+
+          @if (metodoPago() === 'cripto') {
+            <div class="p-3 rounded-3" style="background: rgba(0, 243, 255, 0.05); border: 1px dashed #00f3ff;">
+              <label class="text-info small mb-2 fw-bold">DIRECCIÓN DE BILLETERA (TRANSFERENCIA DIRECTA)</label>
+              <div class="input-group mb-2">
+                <input type="text" class="form-control bg-dark text-white border-info"
+                       value="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" readonly>
+                <button class="btn btn-outline-info" type="button">Copiar</button>
+              </div>
+              <p class="text-secondary small mb-0">
+                <i class="bi bi-info-circle me-1"></i>
+                Envía el total exacto. El acceso se activará tras 1 confirmación en la red.
+              </p>
             </div>
-            <div class="col-md-4">
-              <label class="text-white small mb-2 opacity-75">CVC</label>
-              <input type="text" class="form-control bg-transparent text-white border-secondary" placeholder="123">
+          } @else if (metodoPago() === 'paypal') {
+            <div class="text-center py-3">
+              <p class="text-white">Serás redirigido al portal seguro de <span class="fw-bold" style="color: #0070ba;">PayPal</span>.</p>
             </div>
-          </div>
+          } @else {
+            <div class="row g-3">
+              <div class="col-md-8">
+                <label class="text-white small mb-2 opacity-75">Número de Tarjeta</label>
+                <input type="text" class="form-control bg-transparent text-white border-secondary" placeholder="0000 0000 0000 0000">
+              </div>
+              <div class="col-md-4">
+                <label class="text-white small mb-2 opacity-75">CVC</label>
+                <input type="text" class="form-control bg-transparent text-white border-secondary" placeholder="123">
+              </div>
+            </div>
+          }
         </div>
       </div>
 
