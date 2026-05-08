@@ -31,24 +31,27 @@
           </div>
 
           @if (metodoPago() === 'cripto') {
-            <div class="p-3 rounded-3" style="background: rgba(0, 243, 255, 0.05); border: 1px dashed #00f3ff;">
-              <label class="text-info small mb-2 fw-bold">DIRECCIÓN DE BILLETERA (TRANSFERENCIA DIRECTA)</label>
+            <div class="p-3 rounded-3 fade-in-up" style="background: rgba(0, 243, 255, 0.05); border: 1px dashed #00f3ff;">
+              <label class="text-info small mb-2 fw-bold">DIRECCIÓN DE BILLETERA</label>
               <div class="input-group mb-2">
                 <input type="text" class="form-control bg-dark text-white border-info"
                        value="bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh" readonly>
                 <button class="btn btn-outline-info" type="button">Copiar</button>
               </div>
-              <p class="text-secondary small mb-0">
-                <i class="bi bi-info-circle me-1"></i>
-                Envía el total exacto. El acceso se activará tras 1 confirmación en la red.
-              </p>
+              <p class="text-secondary small mb-0">El acceso se activará tras la confirmación en red.</p>
             </div>
           } @else if (metodoPago() === 'paypal') {
-            <div class="text-center py-3">
-              <p class="text-white">Serás redirigido al portal seguro de <span class="fw-bold" style="color: #0070ba;">PayPal</span>.</p>
+            <div class="text-center py-3 fade-in-up">
+              <p class="text-white">
+                Serás redirigido al portal seguro de
+                <a href="https://www.paypal.com" target="_blank" class="fw-bold" style="color: #0070ba; text-decoration: none;">
+                  PayPal <i class="bi bi-box-arrow-up-right small"></i>
+                </a>.
+              </p>
+              <p class="text-secondary small">Haz clic abajo para iniciar la conexión.</p>
             </div>
           } @else {
-            <div class="row g-3">
+            <div class="row g-3 fade-in-up">
               <div class="col-md-8">
                 <label class="text-white small mb-2 opacity-75">Número de Tarjeta</label>
                 <input type="text" class="form-control bg-transparent text-white border-secondary" placeholder="0000 0000 0000 0000">
@@ -64,7 +67,7 @@
 
       <div class="col-lg-4">
         <div class="cyber-card p-4" style="background: #0a0a12; border: 1px solid #bc13fe; box-shadow: 0 0 20px rgba(188, 19, 254, 0.2);">
-          <h4 class="purple-text mb-4 text-uppercase" style="letter-spacing: 2px;">Resumen de Pedido</h4>
+          <h4 class="purple-text mb-4 text-uppercase" style="letter-spacing: 2px;">Resumen</h4>
 
           @for (item of cartService.cart(); track item.id) {
             <div class="d-flex justify-content-between mb-2">
@@ -83,10 +86,9 @@
                   (click)="pagar()"
                   [disabled]="cargandoProceso() || cartService.cart().length === 0">
             @if (cargandoProceso()) {
-              <span class="spinner-border spinner-border-sm me-2" role="status"></span>
-              PROCESANDO...
+              <span class="spinner-border spinner-border-sm me-2"></span> PROCESANDO...
             } @else {
-              CONFIRMAR PEDIDO
+              {{ metodoPago() === 'paypal' ? 'IR A PAYPAL' : 'CONFIRMAR PEDIDO' }}
             }
           </button>
         </div>
@@ -99,15 +101,12 @@
     <div class="tick-circle mb-4">
       <i class="bi bi-check-lg tick-icon"></i>
     </div>
-
     <h1 class="fw-bold mb-2">
       <span style="color: #00f3ff; text-shadow: 0 0 15px rgba(0,243,255,0.4);">¡PAGO</span>
       <span style="color: #bc13fe; text-shadow: 0 0 15px rgba(188,19,254,0.4);"> COMPLETADO!</span>
     </h1>
-
     <p class="text-secondary mt-2 mb-1 fs-5">Sistemas actualizados correctamente.</p>
-    <p class="text-secondary mb-5">Se ha enviado un código de acceso cifrado a tu terminal.</p>
-
+    <p class="text-secondary mb-5">Recibirás los accesos en tu terminal.</p>
     <div class="d-flex gap-3">
       <button class="btn-proceder-pago px-5" routerLink="/catalog">EXPLORAR MÁS</button>
       <button class="btn btn-outline-secondary px-5 py-3 text-uppercase fw-bold" routerLink="/home">Inicio</button>

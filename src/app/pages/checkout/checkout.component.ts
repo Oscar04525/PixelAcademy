@@ -26,6 +26,11 @@ export class CheckoutComponent {
   }
 
   pagar() {
+    if (this.metodoPago() === 'paypal') {
+      window.location.href = 'https://www.paypal.com';
+      return;
+    }
+
     this.cargandoProceso.set(true);
 
     setTimeout(() => {
