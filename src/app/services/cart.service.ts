@@ -35,8 +35,12 @@ export class CartService {
     return this.cart();
   }
 
+  public animarCarrito = signal(false);
+
   addToCart(product: Course) {
     this.cart.update(items => [...items, product]);
+    this.animarCarrito.set(true);
+    setTimeout(() => this.animarCarrito.set(false), 300);
   }
 
   removeFromCart(productId: number) {
