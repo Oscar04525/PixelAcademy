@@ -29,6 +29,21 @@
         </div>
       </div>
     </div>
+
+    <div *ngIf="mostrarMensaje"
+         [@fadeSlide]
+         class="position-fixed bottom-0 end-0 m-4 p-3 rounded shadow-lg d-flex align-items-center"
+         style="background: #1a1a2e; border: 2px solid #00f3ff; z-index: 10000; min-width: 280px;">
+      <div class="me-3 d-flex align-items-center justify-content-center rounded-circle"
+           style="background: #bc13fe; width: 40px; height: 40px; color: white;">
+        <i class="bi bi-cart-check-fill"></i>
+      </div>
+      <div>
+        <h6 class="m-0 text-white fw-bold">¡Añadido!</h6>
+        <small style="color: #00f3ff;">PixelAcademy Cart System</small>
+      </div>
+    </div>
+
   } @else {
     <div class="text-center text-white py-5">
       <h2 class="text-neon">Buscando curso...</h2>
