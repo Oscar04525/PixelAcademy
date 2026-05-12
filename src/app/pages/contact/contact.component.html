@@ -1,6 +1,6 @@
 <div class="container pt-5 mt-5 pb-5" style="margin-top: 6rem !important;">
 
-  <div class="text-center mb-5">
+  <div class="text-center mb-5" data-aos="fade-down">
     <h1 class="fw-bold mb-2">
       <span style="color: #00f3ff; text-shadow: 0 0 15px rgba(0,243,255,0.4);">CONTÁCT</span><span style="color: #bc13fe; text-shadow: 0 0 15px rgba(188,19,254,0.4);">ANOS</span>
     </h1>
@@ -9,9 +9,8 @@
 
   <div class="row g-5 justify-content-center">
 
-    <div class="col-md-7">
+    <div class="col-md-7" data-aos="fade-right" data-aos-delay="200">
       <div class="p-4 rounded-4" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(0,243,255,0.15);" [formGroup]="contactForm">
-
         <div class="row g-3">
           <div class="col-md-6">
             <label class="form-label text-secondary small">NOMBRE</label>
@@ -41,12 +40,7 @@
           </div>
 
           <div class="col-12 mt-4">
-            <button
-              type="button"
-              class="btn btn-primary w-100"
-              [disabled]="loading"
-              (click)="onSubmit()"
-            >
+            <button type="button" class="btn btn-primary w-100" [disabled]="loading" (click)="onSubmit()">
               @if (!loading) {
                 <span>✈ ENVIAR MENSAJE</span>
               } @else {
@@ -68,7 +62,7 @@
     <div class="col-md-4">
       <div class="d-flex flex-column gap-4">
 
-        <div class="contact-info-card">
+        <div class="contact-info-card" data-aos="fade-left" data-aos-delay="300">
           <div class="contact-info-icon"><i class="bi bi-envelope"></i></div>
           <div>
             <p class="text-secondary small mb-1">EMAIL</p>
@@ -76,7 +70,7 @@
           </div>
         </div>
 
-        <div class="contact-info-card">
+        <div class="contact-info-card" data-aos="fade-left" data-aos-delay="400">
           <div class="contact-info-icon"><i class="bi bi-clock"></i></div>
           <div>
             <p class="text-secondary small mb-1">HORARIO DE ATENCIÓN</p>
@@ -85,7 +79,7 @@
           </div>
         </div>
 
-        <div class="contact-info-card">
+        <div class="contact-info-card" data-aos="fade-left" data-aos-delay="500">
           <div class="contact-info-icon"><i class="bi bi-discord"></i></div>
           <div>
             <p class="text-secondary small mb-1">COMUNIDAD</p>
@@ -94,7 +88,7 @@
           </div>
         </div>
 
-        <div class="contact-info-card">
+        <div class="contact-info-card" data-aos="fade-left" data-aos-delay="600">
           <div class="contact-info-icon"><i class="bi bi-geo-alt"></i></div>
           <div>
             <p class="text-secondary small mb-1">UBICACIÓN</p>
